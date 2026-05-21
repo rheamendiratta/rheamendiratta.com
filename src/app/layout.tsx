@@ -40,12 +40,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        {/* Set theme before paint to prevent flash */}
+        {/* Restore accent before first paint to avoid flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()`,
+            __html: `(function(){try{var a=localStorage.getItem('accent');if(a&&a!=='neel')document.documentElement.setAttribute('data-accent',a)}catch(e){}})()`,
           }}
         />
       </head>

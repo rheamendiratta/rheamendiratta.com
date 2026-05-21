@@ -5,7 +5,7 @@ import { Hero } from '@/components/Hero';
 import { Sidebar } from '@/components/Sidebar';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Lightbox } from '@/components/Lightbox';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { AccentToggle } from '@/components/AccentToggle';
 import { projects, FILTERS } from '@/data/projects';
 import type { Project, FilterTag } from '@/data/projects';
 
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <ThemeToggle />
+      <AccentToggle />
 
       <div className="app-layout">
         <Sidebar />

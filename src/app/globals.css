@@ -9,10 +9,13 @@
   --text-secondary: #5C5C5C;
   --text-tertiary: #8A8A8A;
 
+  /* Neel (indigo) — default accent */
   --accent: #4A5899;
   --accent-hover: #3A4578;
   --accent-soft: rgba(74, 88, 153, 0.08);
   --accent-medium: rgba(74, 88, 153, 0.16);
+  --sidebar-start: #141628;
+  --sidebar-end: #1c1f42;
 
   --saffron: #D4952A;
   --saffron-soft: rgba(212, 149, 42, 0.08);
@@ -31,44 +34,38 @@
   --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
   --shadow-md: 0 4px 16px rgba(26, 26, 26, 0.06);
   --shadow-lg: 0 8px 32px rgba(26, 26, 26, 0.08);
-  --doodle-color: #4A5899;
 
   --font-serif: 'Instrument Serif', serif;
   --font-sans: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-[data-theme="dark"] {
-  --bg-primary: #141210;
-  --bg-secondary: #1E1C18;
-  --bg-card: #1E1C18;
-  --text-primary: #F0EBE3;
-  --text-secondary: #A89F93;
-  --text-tertiary: #6B6358;
+/* ─── Accent themes ─── */
+[data-accent="kesar"] {
+  --accent: #D4952A;
+  --accent-hover: #B87D1E;
+  --accent-soft: rgba(212, 149, 42, 0.08);
+  --accent-medium: rgba(212, 149, 42, 0.16);
+  --sidebar-start: #18120a;
+  --sidebar-end: #241808;
+}
 
-  --accent: #7B8AD0;
-  --accent-hover: #99A5E0;
-  --accent-soft: rgba(123, 138, 208, 0.08);
-  --accent-medium: rgba(123, 138, 208, 0.15);
+[data-accent="gulabi"] {
+  --accent: #B5485A;
+  --accent-hover: #943A4A;
+  --accent-soft: rgba(181, 72, 90, 0.08);
+  --accent-medium: rgba(181, 72, 90, 0.16);
+  --sidebar-start: #1a0c0f;
+  --sidebar-end: #27101a;
+}
 
-  --saffron: #E8AD4A;
-  --saffron-soft: rgba(232, 173, 74, 0.1);
-  --saffron-hover: #F0C060;
-  --gulabi: #D4687A;
-  --gulabi-soft: rgba(212, 104, 122, 0.1);
-  --gulabi-hover: #E48090;
-  --haldi: #9AA04E;
-  --haldi-soft: rgba(154, 160, 78, 0.1);
-  --haldi-hover: #B0B860;
-
-  --border: #2E2A24;
-  --border-light: #252220;
-  --tag-bg: #2E2A24;
-  --tag-text: #A89F93;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --doodle-color: #7B8AD0;
+[data-accent="haldi"] {
+  --accent: #7A803C;
+  --accent-hover: #636828;
+  --accent-soft: rgba(122, 128, 60, 0.08);
+  --accent-medium: rgba(122, 128, 60, 0.16);
+  --sidebar-start: #111608;
+  --sidebar-end: #1a2010;
 }
 
 /* ─── Reset ─── */
@@ -106,11 +103,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-bottom: 1px solid var(--border);
 }
 
-.hero-pattern {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
 
 .hero-inner {
   display: flex;
@@ -171,9 +163,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   max-width: 480px;
 }
 
-.hero-doodle {
-  position: absolute;
-}
 
 .hero-scroll {
   display: flex;
@@ -226,7 +215,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow-y: auto;
   padding: 48px 32px;
   border-right: none;
-  background: linear-gradient(180deg, #141628 0%, #1c1f42 100%);
+  background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -663,35 +652,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--accent);
 }
 
-/* ─── Theme toggle ─── */
-.theme-toggle {
+/* ─── Accent toggle ─── */
+.accent-toggle {
   position: fixed;
   top: 24px;
   right: 24px;
   z-index: 50;
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: all 0.2s ease;
+  border: 2.5px solid var(--border);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-[data-theme="dark"] .theme-toggle {
-  border-color: var(--border);
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
+.accent-toggle:hover {
+  transform: scale(1.12);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ─── Empty state ─── */
