@@ -28,43 +28,44 @@ export default function Home() {
   return (
     <>
       <ThemeToggle />
-      <Hero />
 
-      <div className="content-layout">
+      <div className="app-layout">
         <Sidebar />
 
-        <main className="projects-section">
-          <h2 className="projects-heading">Projects</h2>
+        <div className="main-content">
+          <Hero />
 
-          {/* Filter tabs */}
-          <div className="filter-tabs" role="group" aria-label="Filter projects">
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                className={`filter-tab${activeFilter === f ? ' active' : ''}`}
-                onClick={() => setActiveFilter(f)}
-                aria-pressed={activeFilter === f}
-              >
-                {FILTER_LABELS[f]}
-              </button>
-            ))}
-          </div>
+          <main className="projects-section">
+            <h2 className="projects-heading">Projects</h2>
 
-          {/* Project grid */}
-          <div className="projects-grid">
-            {filtered.length === 0 ? (
-              <p className="projects-empty">No projects in this category yet.</p>
-            ) : (
-              filtered.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={setSelectedProject}
-                />
-              ))
-            )}
-          </div>
-        </main>
+            <div className="filter-tabs" role="group" aria-label="Filter projects">
+              {FILTERS.map((f) => (
+                <button
+                  key={f}
+                  className={`filter-tab${activeFilter === f ? ' active' : ''}`}
+                  onClick={() => setActiveFilter(f)}
+                  aria-pressed={activeFilter === f}
+                >
+                  {FILTER_LABELS[f]}
+                </button>
+              ))}
+            </div>
+
+            <div className="projects-grid">
+              {filtered.length === 0 ? (
+                <p className="projects-empty">No projects in this category yet.</p>
+              ) : (
+                filtered.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    onClick={setSelectedProject}
+                  />
+                ))
+              )}
+            </div>
+          </main>
+        </div>
       </div>
 
       {selectedProject && (

@@ -1,15 +1,16 @@
 export function Hero() {
   return (
     <section className="hero" aria-label="Introduction">
-      {/* Background diamond pattern */}
+      {/* Subtle background pattern */}
       <svg className="hero-pattern" aria-hidden="true">
         <defs>
           <pattern id="diamonds" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
             <path
               d="M22 3 L41 22 L22 41 L3 22 Z"
               fill="none"
-              stroke="rgba(255,255,255,0.06)"
+              stroke="var(--doodle-color)"
               strokeWidth="1"
+              opacity="0.06"
             />
           </pattern>
         </defs>
@@ -19,35 +20,37 @@ export function Hero() {
       {/* Doodle — star top right */}
       <svg
         className="hero-doodle"
-        style={{ top: 48, right: 80, width: 52, height: 52 }}
+        style={{ top: 48, right: 60, width: 48, height: 48 }}
         viewBox="0 0 52 52"
         fill="none"
         aria-hidden="true"
       >
         <path
           d="M26 4 L30 20 L46 20 L33 30 L38 46 L26 36 L14 46 L19 30 L6 20 L22 20 Z"
-          stroke="rgba(168,179,232,0.35)"
+          stroke="var(--doodle-color)"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
+          opacity="0.25"
         />
       </svg>
 
       {/* Doodle — squiggle bottom left */}
       <svg
         className="hero-doodle"
-        style={{ bottom: 80, left: 48, width: 72, height: 28 }}
+        style={{ bottom: 80, left: 40, width: 64, height: 24 }}
         viewBox="0 0 72 28"
         fill="none"
         aria-hidden="true"
       >
         <path
           d="M4 14 C12 4, 22 24, 32 14 C42 4, 52 24, 62 14 C68 8, 70 14, 70 14"
-          stroke="rgba(168,179,232,0.3)"
+          stroke="var(--doodle-color)"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          opacity="0.2"
         />
       </svg>
 

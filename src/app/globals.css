@@ -98,11 +98,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ─── Hero ─── */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(140deg, #141628 0%, #1e2244 50%, #16192e 100%);
+  background: var(--bg-primary);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-pattern {
@@ -115,33 +116,30 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   flex: 1;
-  padding: 80px 72px;
-  gap: 64px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  padding: 80px 60px;
+  gap: 56px;
 }
 
 .hero-photo {
   flex-shrink: 0;
-  width: 300px;
+  width: 260px;
   position: relative;
 }
 
 .hero-photo img {
   width: 100%;
-  height: 380px;
+  height: 340px;
   object-fit: cover;
   object-position: center top;
-  border-radius: 16px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-photo-ring {
   position: absolute;
-  inset: -12px;
-  border-radius: 22px;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  inset: -10px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
   pointer-events: none;
 }
 
@@ -151,38 +149,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero-text h1 {
   font-family: var(--font-serif);
-  font-size: 68px;
+  font-size: 62px;
   font-style: italic;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--text-primary);
   line-height: 1.1;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   letter-spacing: -0.5px;
 }
 
 .hero-text h1 em {
   font-style: italic;
-  color: #a8b3e8;
+  color: var(--accent);
 }
 
 .hero-text p {
   font-family: var(--font-sans);
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-secondary);
   line-height: 1.75;
-  max-width: 500px;
+  max-width: 480px;
 }
 
 .hero-doodle {
   position: absolute;
-  opacity: 0.5;
 }
 
 .hero-scroll {
   display: flex;
   justify-content: center;
   padding-bottom: 36px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-tertiary);
 }
 
 .hero-scroll-icon {
@@ -203,6 +200,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ─── Layout ─── */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* keep old name as alias in case anything references it */
 .content-layout {
   display: flex;
   min-height: 100vh;
@@ -722,6 +730,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     margin: 0 auto;
   }
 
+  .app-layout,
   .content-layout {
     flex-direction: column;
   }
