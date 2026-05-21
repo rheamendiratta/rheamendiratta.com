@@ -329,6 +329,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 13.5px;
 }
 
+.sidebar-bio a {
+  color: #a8b3e8;
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 179, 232, 0.25);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: text-decoration-color 0.18s ease;
+}
+
+.sidebar-bio a::after {
+  content: '↗';
+  font-size: 0.72em;
+  margin-left: 2px;
+  display: inline-block;
+  opacity: 0;
+  transform: translate(-4px, 2px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.sidebar-bio a:hover {
+  text-decoration-color: #a8b3e8;
+}
+
+.sidebar-bio a:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
 /* ─── Projects section ─── */
 .projects-section {
   flex: 1;

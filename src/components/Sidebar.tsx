@@ -51,18 +51,22 @@ export function Sidebar() {
 
       <div className="sidebar-bio">
         <p>
-          I enjoy taking on challenges and am curious, compassionate, detail-oriented, and
-          analytical. My goal is to make a lasting, positive impact in education.
+          I thrive in high-challenge environments. I bring curiosity, compassion, and analytical 
+          thinking to create <b>sustainable impact in the education sector.</b>
         </p>
         <p>
-          Beginning my career as a teacher with Teach For India, I taught ninth and tenth grade
-          students in an underserved community in Ahmedabad, Gujarat. Later, I did Research and
-          Design at Mahina Social Services, partnering with government stakeholders to strengthen
-          nonprofit teams and support a social enterprise.
+          I began my journey as a Math and Science teacher supporting middle school students 
+          in an underserved community in Ahmedabad, Gujarat, with <a href="https://www.teachforindia.org/">Teach For India. </a> 
+           I then conducted research, designed programs, and evaluated impact at <a href="https://www.mantra4change.org/">Mantra Social 
+          Services.</a> I worked with government stakeholders and non-profit teams to build 
+          scalable education solutions and contributed to a social enterprise.
         </p>
         <p>
-          Beyond education and systems work, I enjoy reading, running, digital art and animation,
-          following space research, and most recently, building fun apps.
+          Outside of education and systems, I enjoy cooking, exploring records of space 
+          and deep-sea expeditions, and lately, building apps.
+        </p>
+        <p>
+          Email me to connect and collaborate!
         </p>
       </div>
     </aside>
