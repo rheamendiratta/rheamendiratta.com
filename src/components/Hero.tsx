@@ -14,7 +14,7 @@ export function Hero() {
           <p>
             — and I design solutions to hard education problems, with a focus on enriching
             learning experiences for children. I have 5 years of experience in education in
-            India and I&apos;m currently a Public Policy student at the University of Chicago.
+            India and I&apos;m currently a <a href="https://harris.uchicago.edu/news-events/news/student-profile-rhea-mendiratta-mpp-class-2026">Public Policy student at the University of Chicago.</a>
           </p>
         </div>
       </div>
