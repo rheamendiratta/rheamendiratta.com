@@ -19,6 +19,7 @@ export interface Project {
   color: SpiceColor;
   externalLink?: string;
   externalLinkLabel?: string;
+  spotifyLink?: string;
   githubLink?: string;
   pdfLink?: string;
   featuredImage?: ProjectImage;
@@ -32,12 +33,13 @@ export const projects: Project[] = [
     id: 'india-education-dashboard',
     title: 'India Education Dashboard',
     description:
-      "An interactive, multi-source dashboard placing India's education data in global context — combining World Bank, UDISE+, OECD, NAS, ASER, and PGI in one place.",
+      "An interactive, multi-source dashboard combining data on Indian education from multiple sources.",
     body: [
       "India runs the largest school system in the world, with over 250 million children enrolled, and yet the data needed to understand how that system is performing is scattered across sources that are incomplete, sometimes biased, and do not work together. The World Bank provides global comparisons, while UDISE+ covers administrative data from India's states and districts. OECD, NAS, and ASER track learning outcomes through different methods, while PGI measures school quality.",
       "This project builds an interactive dashboard organized around three geographic levels — World, India, and States. The World level places India in the global distribution across indicators such as enrollment, completion, learning poverty, teacher ratios, and education spending, and overlays India's own UDISE figures with World Bank estimates for the same indicators. The dual-source overlay surfaces discrepancies between domestic and international data, which are themselves informative.",
-      'The goal is neutral, transparent coverage of education data that is currently presented only by the Indian government.',
+      'The goal is neutral, transparent coverage of education data.',
     ],
+    note: 'in progress',
     tags: ['Education', 'Research & Data'],
     color: 'saffron',
     externalLink: 'https://rheamendiratta.github.io/india-edu-site.github.io/world/',
@@ -46,12 +48,11 @@ export const projects: Project[] = [
     id: 'data-analysis-r',
     title: 'Data Analysis in R',
     description:
-      'R evaluation of a Cook County recidivism-reduction program — cleaning administrative data, engineering indicators, testing baseline balance, and estimating treatment effects.',
+      'Evaluation of a Cook County recidivism-reduction program in R.',
     body: [
       "I was given simulated administrative data from the Cook County State's Attorney's Office to evaluate a one-year recidivism-reduction program in Chicago with randomized assignment to treatment and control.",
     ],
     bullets: [
-      'Recoded race/ethnicity and summarized sample composition',
       'Merged arrests with crime records and restricted to Chicago arrests',
       'Created flexible charge indicators (e.g., homicide, weapons)',
       'Reconstructed and validated the post-assignment re-arrest outcome',
@@ -67,13 +68,28 @@ export const projects: Project[] = [
     id: 'up-close-and-personal',
     title: 'Up Close & Personal',
     description:
-      "Host of ShikshaLokam's flagship video podcast — 20 candid conversations with senior bureaucrats, philanthropists, and educators shaping India's school system.",
+      "Hosted ShikshaLokam's flagship video podcast. 20 candid conversations with senior bureaucrats, philanthropists, and educators shaping India's school system.",
     body: [
-      "Up Close & Personal is ShikshaLokam's flagship video podcast, featuring in-depth conversations with the people shaping India's education landscape — senior government officials, philanthropists, education entrepreneurs, and classroom innovators.",
-      "As host, I led 20 episodes of candid dialogue exploring how India's massive school system can be made more effective, equitable, and responsive to children's needs. Guests included Anita Karwal, former Secretary of the Department of School Education and Literacy, Ministry of Education, and Chetan Kapoor, CEO of Tech Mahindra Foundation.",
+      "Up Close & Personal is ShikshaLokam's flagship video podcast, featuring in-depth conversations with the people shaping India's education landscape: senior government officials, philanthropists, education entrepreneurs, and classroom innovators.",
+      "As host, I led 20 episodes of candid dialogue exploring how India's massive school system can be made more effective, equitable, and responsive to children's needs.",
     ],
     tags: ['Education', 'Social Impact'],
     color: 'gulabi',
+    galleryImages: [
+      {
+        src: '/Anita%20Karwal.png',
+        alt: 'In conversation with Anita Karwal',
+        caption: 'In conversation with Anita Karwal, former Secretary of the Department of School Education and Literacy, Ministry of Education in India. We dive deep into micro-improvements — an approach that restores the agency of a leader and has the potential to shape a brighter future for our children.',
+      },
+      {
+        src: '/Chetan%20Kapoor.png',
+        alt: 'In conversation with Chetan Kapoor',
+        caption: 'In conversation with Chetan Kapoor, the CEO of Tech Mahindra Foundation. We explore how solutions must be tailored to local needs, even when the problems are similar.',
+      },
+    ],
+    externalLink: 'https://youtube.com/playlist?list=PLa_4M_7MRsGxbspv3bT1s6c5ZCg9PYmeX&si=pUeOVnoPoGXDjvEK',
+    externalLinkLabel: 'Watch on YouTube ↗',
+    spotifyLink: 'https://open.spotify.com/show/2Yv5ABwndbUfBbSN7lBsNw?si=ncNkqhzQQzOJDyvVJVpczQ',
   },
   {
     id: 'project-based-learning',

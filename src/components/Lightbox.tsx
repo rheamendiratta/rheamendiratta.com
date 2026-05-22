@@ -119,7 +119,7 @@ export function Lightbox({ project, onClose }: Props) {
             </div>
           )}
 
-          {(project.externalLink || project.githubLink) && (
+          {(project.externalLink || project.spotifyLink || project.githubLink) && (
             <div className="lightbox-actions">
               {project.externalLink && (
                 <a
@@ -129,6 +129,16 @@ export function Lightbox({ project, onClose }: Props) {
                   className="btn-primary"
                 >
                   {project.externalLinkLabel ?? 'View Project →'}
+                </a>
+              )}
+              {project.spotifyLink && (
+                <a
+                  href={project.spotifyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-spotify"
+                >
+                  Listen on Spotify ↗
                 </a>
               )}
               {project.githubLink && (

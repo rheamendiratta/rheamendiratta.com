@@ -760,6 +760,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--accent);
 }
 
+.btn-spotify {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s ease;
+}
+
+.btn-spotify:hover {
+  background: var(--accent-hover);
+}
+
 /* ─── Accent toggle ─── */
 .accent-toggle {
   position: fixed;
