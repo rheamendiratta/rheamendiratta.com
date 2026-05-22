@@ -131,6 +131,87 @@ export const projects: Project[] = [
     pdfLink: '/All_GIS_labs.pdf',
   },
   {
+    id: 'program-evaluation-sample',
+    title: 'Program Evaluation Sample',
+    description:
+      'A progression of causal inference methods in R — from naive estimation and exact matching to a Two-Stage Least Squares Instrumental Variable approach.',
+    body: [
+      'This project works through a sequence of causal inference techniques applied to program evaluation data in R. Starting with naive estimation to establish a baseline, the analysis moves through exact matching to address selection bias, and ultimately implements a Two-Stage Least Squares (2SLS) Instrumental Variable strategy that leverages a randomized subsidy pilot to isolate the treatment effect.',
+      'The progression is designed to illustrate why each step is necessary — and what each method recovers that the previous one could not.',
+    ],
+    tags: ['Research & Data'],
+    color: 'haldi',
+    githubLink: 'https://github.com/rheamendiratta/program-eval_sample',
+  },
+  {
+    id: 'brighton-career-series',
+    title: 'Brighton Career Series',
+    description:
+      'A career inspiration series for students — conversations designed not to map out a path, but to make young people hungry to find one.',
+    body: [
+      "\"If you want to build a ship, don't drum up the men to gather wood, divide the work, and give orders. Instead, teach them to yearn for the vast and endless sea.\" — Antoine de Saint-Exupéry",
+      "The Brighton Career Series was built around that idea. Rather than presenting careers as a checklist of qualifications and job titles, the series brought students into conversation with people doing meaningful work — to spark curiosity, widen the frame of what feels possible, and give young people a reason to lean forward.",
+    ],
+    tags: ['Education', 'Social Impact'],
+    color: 'gulabi',
+    externalLink: 'https://www.youtube.com/watch?v=vECJg5qILX4',
+    externalLinkLabel: 'Watch on YouTube ↗',
+  },
+  {
+    id: 'math-masters',
+    title: 'Math Masters',
+    description:
+      "A YouTube channel of math explainer videos — made by Rhea and her students — to address learning gaps and build confidence in foundational math skills for grades 6, 7, and 8.",
+    body: [
+      "As a Math teacher, I often noticed a lack of pre-requisite knowledge before starting a more complex topic in class. Moreover, a lot of students in my classroom joined blended learning later through the academic year because of COVID and felt out of touch with Math. They needed to review many basics and could use some confidence in their math ability.",
+      "These videos are created by me, or one of my students (with consent from parents). We followed Khan Academy's progression for developing fundamental skills in grades 6, 7, 8, and the videos are labeled so. We use a mix of Hindi and English for instruction. There is a Khan Academy activity in each video's description box that will help students practice the skill they have learned. Students should be instructed to do an activity as many times as they'd like until they achieve a score they are satisfied with.",
+    ],
+    tags: ['Education'],
+    color: 'saffron',
+    externalLink: 'https://www.youtube.com/channel/UCK5XTvG39vDSF0dVLqASiwg/videos',
+    externalLinkLabel: 'Watch on YouTube ↗',
+  },
+  {
+    id: 'kalaburagi-example',
+    title: 'The Kalaburagi Example',
+    description:
+      'A case study of district-level education reform in Karnataka — examining how Kalaburagi improved government school outcomes through targeted administrative and community interventions.',
+    body: [
+      "Kalaburagi, a historically underserved district in northern Karnataka, became a reference point for what focused district-level leadership can achieve in India's public school system. This case study documents the conditions, decisions, and ground-level actions that drove measurable improvement in enrollment, attendance, and learning outcomes.",
+      'The analysis draws on field observations, government data, and stakeholder interviews to understand what made Kalaburagi different — and what it would take to replicate that model in other districts facing similar constraints.',
+    ],
+    tags: ['Education', 'Research & Data'],
+    color: 'haldi',
+    externalLink: 'https://colabglobal.org/kalaburagis-stint-with-enabling-enriching-learning-experiences-at-scale/',
+    externalLinkLabel: 'Read on Colab ↗',
+  },
+  {
+    id: 'mentoring-in-education',
+    title: 'Mentoring in Education',
+    description:
+      'A framework for structured mentoring in school systems — exploring how sustained one-on-one relationships between educators and students drive academic and personal growth.',
+    body: [
+      "Mentoring is one of the most consistent predictors of student persistence and wellbeing, yet it remains informal and uneven in most school systems. This project develops a structured framework for embedding mentoring relationships into everyday school practice — moving it from an add-on to a core part of how teachers and students interact.",
+      'The framework draws on research in developmental relationships, teacher professional development, and school culture change, and is designed to be practical enough for resource-constrained government and low-fee private schools in the Indian context.',
+    ],
+    tags: ['Education', 'Social Impact'],
+    color: 'gulabi',
+    externalLink: 'https://colabglobal.org/does-mentoring-in-the-education-sector-make-sense/',
+    externalLinkLabel: 'Read on Colab ↗',
+  },
+  {
+    id: 'project-vatsalya',
+    title: 'Project Vatsalya',
+    description:
+      "A structured parent engagement program developed to deepen family investment in children's learning — named for the Sanskrit word for parental love.",
+    body: [
+      "Project Vatsalya is a set of facilitated modules designed to bring parents meaningfully into their children's education. Named for the Sanskrit word for parental love and affection, the program recognises that sustained learning outcomes depend as much on the home environment as on the classroom. The modules guide parents through understanding their role in their child's educational journey — building learning routines, communicating with teachers, and creating conditions at home that support curiosity and growth.",
+    ],
+    tags: ['Education', 'Social Impact'],
+    color: 'saffron',
+    pdfLink: '/Vatsalya_-_Parent_Investment_Modules.pdf',
+  },
+  {
     id: 'social-impact-strategy',
     title: 'Social Impact Strategy',
     description:
