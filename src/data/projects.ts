@@ -2,6 +2,12 @@ export type Tag = 'Education' | 'Research & Data' | 'Social Impact';
 export type FilterTag = 'all' | Tag;
 export type SpiceColor = 'saffron' | 'haldi' | 'gulabi';
 
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -12,8 +18,11 @@ export interface Project {
   tags: Tag[];
   color: SpiceColor;
   externalLink?: string;
+  externalLinkLabel?: string;
   githubLink?: string;
   pdfLink?: string;
+  featuredImage?: ProjectImage;
+  galleryImages?: ProjectImage[];
 }
 
 export const FILTERS: FilterTag[] = ['all', 'Education', 'Research & Data', 'Social Impact'];
@@ -67,6 +76,48 @@ export const projects: Project[] = [
     color: 'gulabi',
   },
   {
+    id: 'project-based-learning',
+    title: 'Project Based Learning',
+    description:
+      'A sample PBL lesson plan developed to introduce project-based learning as a pedagogical strategy to teachers.',
+    body: [
+      'Project-based learning (PBL) is one of the most effective pedagogical strategies for building deep understanding, collaboration, and real-world problem-solving skills in students. Unlike conventional instruction, PBL centres learning around an authentic, open-ended challenge that students work through over time.',
+      'This lesson plan was designed to introduce PBL to teachers — walking through the core principles, session structure, and facilitation moves that make the approach work in a classroom context.',
+    ],
+    tags: ['Education'],
+    color: 'saffron',
+    pdfLink: '/Project_Based_Learning_Session_Flow.pdf',
+    externalLink: 'https://docs.google.com/spreadsheets/d/1rM2InAkSQ-zO_xSIIpdOo9T1pYNGgSqQ/edit?usp=sharing&ouid=111563359665911472402&rtpof=true&sd=true',
+    externalLinkLabel: 'Access a sample lesson plan ↗',
+  },
+  {
+    id: 'iop-policy-challenge',
+    title: 'IOP Policy Challenge',
+    description:
+      'First-place policy proposal at the University of Chicago Institute of Politics — a mental health certification program for public accommodations.',
+    body: [
+      'The MINDful Accommodation Certification (PARM) is a policy proposal developed for the IOP Policy Challenge at the University of Chicago. It addresses a gap in mental health crisis response: hotels and motels, where people in crisis frequently present, have no federal requirement to prepare staff for these situations.',
+      'The proposal routes through HHS, SAMHSA, and State Departments of Health to create a voluntary training certification for public accommodations. Certified properties receive tax credits; in return, they maintain one trained staff member on duty at all times, require refresher training every two years, and post the 988 Suicide and Crisis Lifeline number visibly for guests.',
+    ],
+    tags: ['Social Impact', 'Research & Data'],
+    color: 'gulabi',
+    featuredImage: { src: '/PARM_IOP.jpg', alt: 'PARM policy proposal overview' },
+    galleryImages: [
+      {
+        src: '/IOP%20Image%201.jpg',
+        alt: 'Team at IOP Policy Challenge presentation',
+        caption: 'The team came third out of twenty-five teams in this policy challenge.',
+      },
+      {
+        src: '/IOP%20Image%202.jpg',
+        alt: 'Team at IOP Institute of Politics',
+        caption: 'Team members (L–R) Pablo Hernandez, Alison Collard de Beaufort, Rhea Mendiratta, Manav Mutneja.',
+      },
+    ],
+    externalLink: 'https://drive.google.com/file/d/1ihPH8dLFgzL3sPzeO32CqxScmsmsrjFn/view?usp=drive_link',
+    externalLinkLabel: 'Read the full policy proposal →',
+  },
+  {
     id: 'arcgis-portfolio',
     title: 'ArcGIS Pro Portfolio',
     description:
@@ -90,5 +141,6 @@ export const projects: Project[] = [
     ],
     tags: ['Social Impact'],
     color: 'gulabi',
+    pdfLink: '/Social_Impact_Strategy.pdf',
   },
 ];

@@ -9,29 +9,6 @@ const TAG_COLOR: Record<Tag, string> = {
   'Social Impact': 'gulabi',
 };
 
-const LIGHTBOX_SVG: Record<string, React.ReactNode> = {
-  saffron: (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-      <circle cx="60" cy="60" r="44" stroke="var(--saffron)" strokeWidth="2" />
-      <path d="M60 28v64M28 60h64" stroke="var(--saffron)" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-      <circle cx="60" cy="60" r="14" stroke="var(--saffron)" strokeWidth="1.5" fill="none" />
-    </svg>
-  ),
-  haldi: (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-      <rect x="16" y="16" width="88" height="88" rx="14" stroke="var(--haldi)" strokeWidth="2" />
-      <path d="M36 60h48M60 36v48" stroke="var(--haldi)" strokeWidth="2" strokeLinecap="round" />
-      <path d="M36 40l12 12M72 68l12 12" stroke="var(--haldi)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-    </svg>
-  ),
-  gulabi: (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-      <path d="M60 96 C60 96 20 72 20 44 a24 24 0 0 1 40-18 24 24 0 0 1 40 18 C100 72 60 96 60 96Z" stroke="var(--gulabi)" strokeWidth="2" fill="none" strokeLinejoin="round" />
-      <circle cx="60" cy="50" r="10" stroke="var(--gulabi)" strokeWidth="1.5" fill="none" opacity="0.4" />
-    </svg>
-  ),
-};
-
 interface Props {
   project: Project;
   onClose: () => void;
@@ -50,6 +27,8 @@ export function Lightbox({ project, onClose }: Props) {
     };
   }, [onClose]);
 
+  const hasImages = !!(project.featuredImage || project.galleryImages?.length);
+
   return (
     <div
       className="lightbox-backdrop"
@@ -58,37 +37,57 @@ export function Lightbox({ project, onClose }: Props) {
       aria-modal="true"
       aria-label={project.title}
     >
-      <div className={`lightbox-panel${project.pdfLink ? ' lightbox-panel--pdf' : ''}`}>
-        {/* Colored header */}
-        <div className={`lightbox-header-img ${project.color}`}>
-          {LIGHTBOX_SVG[project.color]}
+      <div className={[
+        'lightbox-panel',
+        project.pdfLink ? 'lightbox-panel--pdf' : '',
+        hasImages ? 'lightbox-panel--gallery' : '',
+      ].filter(Boolean).join(' ')}>
+
+        <div className="lightbox-color-bar">
           <button className="lightbox-close" onClick={onClose} aria-label="Close">
             ×
           </button>
         </div>
 
         <div className="lightbox-body">
-          <h2 className="lightbox-title">{project.title}</h2>
-
-          <div className="lightbox-tags">
-            {project.tags.map((tag) => (
-              <span key={tag} className={`tag ${TAG_COLOR[tag]}`}>
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <div className="lightbox-description">
-            {project.body.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
+          {/* Two-column layout when there's a featured image */}
+          {project.featuredImage ? (
+            <div className="lightbox-split">
+              <div className="lightbox-split-text">
+                <h2 className="lightbox-title">{project.title}</h2>
+                <div className="lightbox-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className={`tag ${TAG_COLOR[tag]}`}>{tag}</span>
+                  ))}
+                </div>
+                <div className="lightbox-description">
+                  {project.body.map((para, i) => <p key={i}>{para}</p>)}
+                </div>
+              </div>
+              <div className="lightbox-split-image">
+                <img
+                  src={project.featuredImage.src}
+                  alt={project.featuredImage.alt}
+                />
+              </div>
+            </div>
+          ) : (
+            <>
+              <h2 className="lightbox-title">{project.title}</h2>
+              <div className="lightbox-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag} className={`tag ${TAG_COLOR[tag]}`}>{tag}</span>
+                ))}
+              </div>
+              <div className="lightbox-description">
+                {project.body.map((para, i) => <p key={i}>{para}</p>)}
+              </div>
+            </>
+          )}
 
           {project.bullets && (
             <ul className="lightbox-bullets">
-              {project.bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
+              {project.bullets.map((b, i) => <li key={i}>{b}</li>)}
             </ul>
           )}
 
@@ -96,18 +95,24 @@ export function Lightbox({ project, onClose }: Props) {
             <p className="lightbox-note">{project.note}</p>
           )}
 
+          {/* Gallery strip */}
+          {project.galleryImages && project.galleryImages.length > 0 && (
+            <div className="lightbox-gallery">
+              {project.galleryImages.map((img) => (
+                <figure key={img.src} className="lightbox-gallery-item">
+                  <img src={img.src} alt={img.alt} />
+                  {img.caption && <figcaption>{img.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* Embedded PDF */}
           {project.pdfLink && (
             <div className="lightbox-pdf">
-              <iframe
-                src={project.pdfLink}
-                title={`${project.title} PDF`}
-              />
+              <iframe src={project.pdfLink} title={`${project.title} PDF`} />
               <div className="lightbox-pdf-bar">
-                <a
-                  href={project.pdfLink}
-                  download
-                  className="btn-secondary"
-                >
+                <a href={project.pdfLink} download className="btn-secondary">
                   Download PDF ↓
                 </a>
               </div>
@@ -123,7 +128,7 @@ export function Lightbox({ project, onClose }: Props) {
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  View Project →
+                  {project.externalLinkLabel ?? 'View Project →'}
                 </a>
               )}
               {project.githubLink && (
