@@ -58,7 +58,7 @@ export function Lightbox({ project, onClose }: Props) {
       aria-modal="true"
       aria-label={project.title}
     >
-      <div className="lightbox-panel">
+      <div className={`lightbox-panel${project.pdfLink ? ' lightbox-panel--pdf' : ''}`}>
         {/* Colored header */}
         <div className={`lightbox-header-img ${project.color}`}>
           {LIGHTBOX_SVG[project.color]}
@@ -94,6 +94,24 @@ export function Lightbox({ project, onClose }: Props) {
 
           {project.note && (
             <p className="lightbox-note">{project.note}</p>
+          )}
+
+          {project.pdfLink && (
+            <div className="lightbox-pdf">
+              <iframe
+                src={project.pdfLink}
+                title={`${project.title} PDF`}
+              />
+              <div className="lightbox-pdf-bar">
+                <a
+                  href={project.pdfLink}
+                  download
+                  className="btn-secondary"
+                >
+                  Download PDF ↓
+                </a>
+              </div>
+            </div>
           )}
 
           {(project.externalLink || project.githubLink) && (

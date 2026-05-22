@@ -13,6 +13,7 @@ export interface Project {
   color: SpiceColor;
   externalLink?: string;
   githubLink?: string;
+  pdfLink?: string;
 }
 
 export const FILTERS: FilterTag[] = ['all', 'Education', 'Research & Data', 'Social Impact'];
@@ -64,6 +65,19 @@ export const projects: Project[] = [
     ],
     tags: ['Education', 'Social Impact'],
     color: 'gulabi',
+  },
+  {
+    id: 'arcgis-portfolio',
+    title: 'ArcGIS Pro Portfolio',
+    description:
+      'A collection of GIS lab exercises built in ArcGIS Pro — spatial analysis, mapping, and data visualization applied to real-world geographic datasets.',
+    body: [
+      'This portfolio documents a series of hands-on labs completed in ArcGIS Pro, covering core competencies in geographic information systems: projections and coordinate systems, spatial joins, raster analysis, network analysis, and cartographic design.',
+      'Each lab applies GIS methods to real datasets — from demographic and land-use data to environmental and infrastructure layers — building toward the ability to use spatial thinking as a tool for policy research and program design.',
+    ],
+    tags: ['Research & Data'],
+    color: 'haldi',
+    pdfLink: '/All_GIS_labs.pdf',
   },
   {
     id: 'social-impact-strategy',
